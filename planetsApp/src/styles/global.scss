@@ -1,0 +1,81 @@
+$blackColor: #000;
+$blueColor: #037bc0;
+
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Aplica border-box a todos los elementos */
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.6rem;
+  line-height: 2;
+}
+
+h1,
+h2{
+  margin: 0 0 2rem 0;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3{
+  font-size: 3rem;
+  margin: 0;
+}
+
+a {
+  color: $blackColor;
+  text-decoration: none;
+}
+
+.blue {
+  color: $blueColor;
+}
+
+.app{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.backgroundBlue{
+  background-color: $blueColor;
+}
+
+.aboutUsText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.imgCard{
+  width: 100%;
+  height: 30rem;
+  object-fit: cover;
+}

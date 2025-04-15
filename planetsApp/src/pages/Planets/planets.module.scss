@@ -1,0 +1,39 @@
+$box-shadow: #f2f2f2;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem;
+}
+
+.cardContainer{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.img{
+    width: 30rem;
+    height: 30rem;
+    object-fit: cover;
+  }
+  .card{
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0.5rem 2rem $box-shadow;
+      border-radius: 1.25rem;
+
+    }
+  }
+
+  .cardPlanet{
+    border-radius: 1.25rem;
+    box-shadow: 0 0.25rem 1.25rem $box-shadow;
+    align-items: flex-start;
+  }
+
+
