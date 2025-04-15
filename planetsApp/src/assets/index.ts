@@ -6,3 +6,5 @@ export { default as venus } from './Venus.jpg';
 export { default as saturn } from './Saturn.jpg';
 export { default as uranus } from './Uranus.jpg';
 export { default as neptune } from './Neptune.jpg';
+export { default as heart } from './heart.svg';
+export { default as heartRed } from './heartRed.svg';

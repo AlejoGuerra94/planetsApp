@@ -2,12 +2,17 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { planetImages } from "../Planets/constants";
 import Loader from "../../component/Loader";
+import useFavorites from "../../utils/favorite";
+import { heart,heartRed } from "../../assets";
 
 import styles from "./planetDetail.module.scss";
 
 const PlanetDetail = () => {
   const { planetId } = useParams<{ planetId: string }>();
   const [planet, setPlanet] = useState<IPlanet | null>(null);
+  const { favorites, toggleFavorite } = useFavorites();
+
+  const isFavorite = favorites.includes(planetId || "");
 
   useEffect(() => {
     const fetchPlanet = async () => {
@@ -26,11 +31,40 @@ const PlanetDetail = () => {
   }, [planetId]);
 
   if (!planet) return <Loader />;
-
+ 
   return (
     <div className={styles.detailContainer}>
-        <button className={styles.backButton} onClick={() => window.history.back()}>Volver</button>
-      <h1>{planet.englishName}</h1>
+      <button
+        className={styles.backButton}
+        onClick={() => window.history.back()}
+      >
+        Volver
+      </button>
+
+      <div className={styles.detailHeader}>
+        <h2>{planet.englishName}</h2>
+        <button
+          onClick={() => toggleFavorite(planetId!)}
+          className={styles.favoriteButton}
+          aria-label={
+            isFavorite ? "Quitar de favoritos" : "Agregar a favoritos"
+          }
+        >
+          {isFavorite ? (
+            <img
+              src={heartRed}
+              alt="Icono corazón rojo"
+              className={styles.favoriteIcon}
+            />
+          ) : (
+            <img
+              src={heart}
+              alt="Icono corazón blanco"
+              className={styles.favoriteIcon}
+            />
+          )}
+        </button>
+      </div>
       <div className={styles.details}>
         <img
           src={planetImages[planet.id]}
